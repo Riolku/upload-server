@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+	</head>
+
+	<body>
+		<center>
+			<h1>Login</h1>
+
+			{% for msg in get_flashed_messages(category_filter = 'success') %}
+				<span style="background-color: #55ff55; padding: 5px; border: 1px solid white; border-radius: 5px;">
+					{{ msg }}
+				</span>
+				<br><br>
+			{% endfor %}
+
+			{% for msg in get_flashed_messages(category_filter = 'error') %}
+				<span style="background-color: #ff5555; padding: 5px; border: 1px solid white; border-radius: 5px;">
+					{{ msg }}
+				</span>
+				<br><br>
+			{% endfor %}
+
+			<form method="post">
+				<label for="username">Username: </label>
+				<input type="text" name="username"/>
+
+				<br><br>
+
+				<label for="password">Password: </label>
+				<input type="password" name="password" />
+
+				<br><br>
+
+				<input type="submit" value="Login">
+			</form>
+		</center>
+	</body>
+</html>

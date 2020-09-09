@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Upload File</title>
+	</head>
+
+	<body>
+		<center>
+			<h1>Upload</h1>
+
+			{% for msg in get_flashed_messages(category_filter = 'success') %}
+				<span style="background-color: #55ff55; padding: 5px; border: 1px solid white; border-radius: 5px;">
+					{{ msg }}
+				</span>
+				<br><br>
+			{% endfor %}
+
+			{% for msg in get_flashed_messages(category_filter = 'error') %}
+				<span style="background-color: #ff5555; padding: 5px; border: 1px solid white; border-radius: 5px;">
+					{{ msg }}
+				</span>
+				<br><br>
+			{% endfor %}
+
+			<form method="post" enctype="multipart/form-data">
+				<label for="filename">Filename:</label>
+				<input type="text" name="filename" placeholder="cat.png" />
+				<br>
+				<span>If the filename is blank, the name of the uploaded file will be used.</span>
+
+				<br><br>
+
+				<label for="file">Select a file: </label>
+				<input type="file" name="file" id="file" />
+
+				<br><br>
+
+				<input type="submit" value="Upload">
+			</form>
+		</center>
+	</body>
+</html>

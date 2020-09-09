@@ -40,8 +40,11 @@ def serve_route():
 
         if filename == "": filename = file.filename
 
-        if filename == "":
-          flash("No file detected!", category = "error")
+        if '/' in filename:
+            flash("Invalid filename! Cannot contain `/`.", category = "error")
+
+        elif filename == "":
+            flash("No file detected!", category = "error")
 
         else:
             file.save(safe_join(config['UPLOAD_DIR'], filename))
